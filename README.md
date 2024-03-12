@@ -1,5 +1,7 @@
 # cardsJS
 
+This is a fork with more API
+
 [![Travis build status](https://travis-ci.org/richardschneider/cardsJS.svg)](https://travis-ci.org/richardschneider/cardsJS)
 [![npm version](https://badge.fury.io/js/cardsJS.svg)](https://badge.fury.io/js/cardsJS) 
 
@@ -81,6 +83,27 @@ for more details. Also see [Controlling the fan](https://github.com/richardschne
 ```
 
 Run the [hello world](https://rawgit.com/richardschneider/cardsJS/master/hello.html) sample using [rawgit](http://rawgit.com).
+
+
+### API
+
+```
+card = $('.card:first');
+hand = $('.hand:first');
+
+// replace all the cards in the hand
+cards.replaceCardImages(hand, "2C 3H 4S");
+
+// add cards to the hand
+cards.addCardImages(hand, "5C 6H 7S");
+
+// remove the card
+cards.remove(card);
+
+// reposition the cards if you have changed anything
+cards.applyStyles(hand);
+
+```
 
 # License
 Copyright © 2015 Richard Schneider (makaretu@gmail.com)
