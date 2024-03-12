@@ -25,17 +25,17 @@ if (process.env.CI) {
   };
 }
 
-gulp.task('lint', function () {
+gulp.task('lint', gulp.series( function () {
   return gulp.src(paths.lint)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
-});
+}));
 
 /*
  * no test files yet.
  */
-gulp.task('istanbul', function (cb) {
+gulp.task('istanbul', gulp.series( async function (cb) {
   gulp.src(paths.source)
     .pipe(plugins.istanbul()) // Covering files
     .pipe(plugins.istanbul.hookRequire()) // Force `require` to return covered files
@@ -49,9 +49,9 @@ gulp.task('istanbul', function (cb) {
           cb();
         });
     });
-});
+}));
 
-gulp.task('dist', function() {
+gulp.task('dist', gulp.series( async function() {
     gulp.src(paths.source)
         .pipe(gulp.dest('./dist'))
         .pipe(buffer())
@@ -70,8 +70,8 @@ gulp.task('dist', function() {
         .pipe(svgmin())
         .pipe(gulp.dest('./dist/cards'))
     ;
-});
+}));
 
-gulp.task('test', ['lint'/*, 'istanbul'*/]);
-gulp.task('ci', ['test', 'dist']);
-gulp.task('default', ['test']);
+gulp.task('test', gulp.series(['lint'/*, 'istanbul'*/]));
+gulp.task('ci', gulp.series(['test', 'dist']));
+gulp.task('default', gulp.series(['test']));
