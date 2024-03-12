@@ -5,6 +5,10 @@ img.card {
 	border: 0;
 	vertical-align: initial;
 	box-sizing: initial;
+	user-select: none;
+}
+img.card-code-EMPTY {
+	pointer-events: none;
 }
 
 /*
