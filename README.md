@@ -92,10 +92,10 @@ card = $('.card:first');
 hand = $('.hand:first');
 
 // replace all the cards in the hand
-cards.replaceCardImages(hand, "2C 3H 4S");
+newCardElements = cards.replaceCardImages(hand, "2C 3H 4S");
 
 // add cards to the hand
-cards.addCardImages(hand, "5C 6H 7S");
+newCardElements = cards.addCardImages(hand, "5C 6H 7S");
 
 // remove the card
 cards.remove(card);
