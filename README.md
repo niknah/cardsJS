@@ -1,6 +1,6 @@
 # cardsJS
 
-This is a fork with more API
+This is a fork with more API.  A full game based on this is [here](https://github.com/niknah/racing-demon).
 
 [![Travis build status](https://travis-ci.org/richardschneider/cardsJS.svg)](https://travis-ci.org/richardschneider/cardsJS)
 [![npm version](https://badge.fury.io/js/cardsJS.svg)](https://badge.fury.io/js/cardsJS) 
