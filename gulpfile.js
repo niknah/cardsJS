@@ -67,7 +67,15 @@ gulp.task('dist', gulp.series( async function() {
         .pipe(gulp.dest('./dist/'))
     ;
     gulp.src(paths.cards)
-        .pipe(svgmin())
+        .pipe(svgmin({
+          multipass: true,
+          plugins:[
+            {
+              // convertTransform moves KD.svg incorrectly
+              'convertTransform':false,
+            }
+          ]
+        }))
         .pipe(gulp.dest('./dist/cards'))
     ;
 }));
